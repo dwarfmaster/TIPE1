@@ -9,7 +9,11 @@ class Robot {
 
         /**** Déplacements ****/
         void forward();
-        void stop();
+        void backward();
+        /* Retourne la distance parcourue depuis l'appel
+         * à forward/backward
+         */
+        float stop();
         void turn(float degres);
 
         /**** Communication ****/

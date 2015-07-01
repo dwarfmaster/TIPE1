@@ -37,7 +37,16 @@ parcourue sans rencontrer d'obstacles. On a `a` € [0,1]. On a alors :
     ``` E = a * E_ + (1 - a) * D ```
 
 ## Mutation
-TODO
+La mutation est le processus de mélange des gènes du robot avec ceux reçus
+depuis un autre robot. Si la durée d'expérience d'un des deux robots est
+trop faible, la mutation est annulée. Dans l'autre cas, un pourcentage est
+attribué à chaque génome en fonction de leur notation. Le pourcentage du génome
+courant est le `a` de la partie précédente.
+Pour chaque génome, on choisit aléatoirement une à trois parties en fonction du
+pourcentage. Si un partie est choisie dans chacun des deux génomes, elles sont
+mélangées en prenant un bit de l'une et un bit de l'autre. Si un partie n'est
+choisit que dans un génome, on la conserve telle quelle. Enfin, si elle n'est
+choisit dans aucun génome, elle est générée aléatoirement.
 
 ## Protocole de communication
 TODO

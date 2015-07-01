@@ -25,6 +25,17 @@ couple de bit représente la réaction à avoir face à chacune des trois
 situations. `01` indique qu'il faut tourner à droite, `10` à gauche et `11`
 qu'il faut continuer tout droit.
 
+## Évaluation
+L'évaluation consiste à accorder un score aux performances du robot afin de
+comparer la pertinence de leur génomes respectifs. Le critère prédominant est
+la distance parcourue sans renctrer d'obstacles. Le score précédent est aussi
+pris en compte dans la mesure de son importance lors de la précédente
+évolution.
+On note `a` le coefficient indiquant l'importance du génome précédent, `E` la
+note d'auto-évaluation, `E_` la note précédente et `D` la distance maximale
+parcourue sans rencontrer d'obstacles. On a `a` € [0,1]. On a alors :
+    ``` E = a * E_ + (1 - a) * D ```
+
 ## Mutation
 TODO
 

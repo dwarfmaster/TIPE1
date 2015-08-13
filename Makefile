@@ -6,13 +6,16 @@ OBJS=objs/main.o \
 	 objs/ia.o
 PROG=test.prog
 
-all : $(PROG)
+all : objs/ $(PROG)
 
 $(PROG) : $(OBJS)
 	$(CC) $(CXXFLAGS)    -o $@ $^ $(LDFLAGS)
 
 objs/%.o : src/%.cpp
 	$(CC) $(CXXFLAGS) -c -o $@ $<
+
+objs/ :
+	mkdir objs
 
 clean :
 	rm -r objs

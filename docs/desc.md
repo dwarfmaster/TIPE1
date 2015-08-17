@@ -44,9 +44,9 @@ temps écoulé en secondes :
 La mutation est le processus de mélange des gènes du robot avec ceux reçus
 depuis un autre robot. Si la durée d'expérience d'un des deux robots est
 trop faible, la mutation est annulée. Dans l'autre cas, un pourcentage est
-attribué à chaque génome en fonction de leur notation. Le pourcentage du génome
-courant est le `a` de la partie précédente.
-*TODO: meilleurs pourcentage*
+attribué à chaque génome. Le pourcentage, en notant `E` la note du génome et
+`E'` la note de l'auutre génome est :
+    ``` p = E / (E + E') ```
 Pour chaque génome, on choisit aléatoirement une à trois parties en fonction du
 pourcentage. Si un partie est choisie dans chacun des deux génomes, elles sont
 mélangées en prenant un bit de l'une et un bit de l'autre. Si un partie n'est
@@ -80,7 +80,4 @@ robot.
 
 L'étape de calcul final de la carte est effectué par un ordinateur externe, qui
 superpose les trajectoires des différents robots.
-
-## Algorithme de controle
-*TODO*
 

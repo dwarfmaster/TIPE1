@@ -3,16 +3,7 @@
 #define DEF_IA_HPP
 
 #include "robot.hpp"
-
-class IA {
-    public:
-        IA(Robot* rb);
-        ~IA();
-
-        /* TODO */
-    private:
-        IA();
-};
+void mainloop(Robot* rb);
 
 #endif//DEF_IA_HPP
 

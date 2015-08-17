@@ -4,8 +4,8 @@ Ce documents présente les différentes techniques utilisées par le robot.
 ## Idée générale
 Chaque robot se déplace, suivant un jeu d'instructions simples (par exemple
 tourner à droite après un obstacle ...). Lorsque deux robots se rencontrent,
-il partagent leurs génome, leur auto-évaluation et le temps depuis leur
-précédente évolution. Chacun va ensuite adapter son génome en fonction
+il partagent leurs génome, leur auto-évaluation et la distance parcourue depuis
+leur précédente évolution. Chacun va ensuite adapter son génome en fonction
 puis continuer son chemin, jusqu'à sa rencontre suivante avec un robot.
 
 ## Génome
@@ -35,10 +35,10 @@ On note `a` le coefficient indiquant l'importance du génome précédent, `E` la
 note d'auto-évaluation, `E_` la note précédente et `D` la distance maximale
 parcourue sans rencontrer d'obstacles. On a `a` \in [0,1]. On a alors :
     ``` E = a * E_ + (1 - a) * D ```
-Plus le temps écoulé est important, plus on considère la notation du génome
-actuel comme étant fiable. `a` dépend donc de cette variable. On a, avec `t` le
-temps écoulé en secondes :
-    ``` a = 1 / ((t - 1) / 5 + 1) ```
+Plus la distance parcourue est important, plus on considère la notation du
+génome actuel comme étant fiable. `a` dépend donc de cette variable. On a, avec
+`d` la distance parcourue en mètres :
+    ``` a = 1 / ((d - 1) / 5 + 1) ```
 
 ## Mutation
 La mutation est le processus de mélange des gènes du robot avec ceux reçus
@@ -57,10 +57,10 @@ choisit dans aucun génome, elle est générée aléatoirement.
 Lorsque deux robots se rencontrent, ils envoient chacun un octet permettant de
 les différencier de l'ordinateur central. Si l'octet reçu a la bonne valeur,
 le robot envoit son génome sous la forme d'un octet : `0iippll0`. La distance
-parcourue est ensuite envoyée sous la forme d'un flottant double précison
-de 64bits, puis le temps écoulé depuis la dernière évolution sous la forme d'un
-entier non signé de 32bits. Lorsqu'il a tout reçu, le robot mute puis reprend
-sa trajectoire.
+parcourue est ensuite envoyée sous la forme d'un flottant simple précison
+de 32bits, puis l'autoévaluation depuis la dernière évolution sous la forme
+d'un flottant de 32bits. Lorsqu'il a tout reçu, le robot mute puis reprend sa
+trajectoire.
 
 Si le code identifie l'ordinateur central, le robot envoie sa carte sous forme
 sérialisée, afin que l'ordinateur puisse mettre à jour sa carte.

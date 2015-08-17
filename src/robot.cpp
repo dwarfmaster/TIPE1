@@ -19,7 +19,7 @@ float Robot::stop()
     return 0.0f;
 }
 
-void Robot::turn(float degres)
+void Robot::turn(float rad)
 {
 }
 
@@ -49,5 +49,23 @@ float Robot::scan()
 float Robot::rand()
 {
     return 0.0f;
+}
+
+void* Robot::alloc(unsigned long size)
+{
+    return 0;
+}
+
+void Robot::free(void* mem)
+{
+}
+
+void* Robot::realloc(void* p, unsigned long nsize)
+{
+    return 0;
+}
+
+void Robot::memcpy(void* dest, void* src, unsigned long size)
+{
 }
 

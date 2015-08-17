@@ -13,14 +13,14 @@ class Robot {
         /* Retourne la distance parcourue depuis l'appel à forward/backward
          */
         float stop();
-        void turn(float degres);
+        void turn(float rad);
 
         /**** Communication ****/
         /* Renvoie vrai si un autre robot est détecté
          * Initialise la connection dans ce cas
          */
         bool discover();
-        /* Appel bloquant */
+        /* Appel non bloquant */
         void send(char *buffer, int size);
         /* Appel bloquant */
         int receive(char *buffer, int size);
@@ -37,6 +37,14 @@ class Robot {
          * l'intervalle [0; 1]
          */
         float rand();
+        /* Alloue un bloc de mémoire */
+        void* alloc(unsigned long size);
+        /* Libère un bloc de mémoire */
+        void free(void* mem);
+        /* Redimensionne un bloc de mémoire alloué */
+        void* realloc(void* p, unsigned long nsize);
+        /* Copie un bloc de mémoire */
+        void memcpy(void* dest, void* src, unsigned long size);
 
     private:
 };

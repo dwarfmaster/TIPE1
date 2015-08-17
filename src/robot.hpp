@@ -10,8 +10,7 @@ class Robot {
         /**** Déplacements ****/
         void forward();
         void backward();
-        /* Retourne la distance parcourue depuis l'appel
-         * à forward/backward
+        /* Retourne la distance parcourue depuis l'appel à forward/backward
          */
         float stop();
         void turn(float degres);
@@ -29,10 +28,15 @@ class Robot {
         void close();
 
         /**** Détection ****/
-        /* Retourne la distance de l'obstacle présent
-         * devant
+        /* Retourne la distance de l'obstacle présent devant
          */
         float scan();
+
+        /**** Divers ****/
+        /* Retourne un nombre aléatoire (suivant une densité uniforme) dans
+         * l'intervalle [0; 1]
+         */
+        float rand();
 
     private:
 };
